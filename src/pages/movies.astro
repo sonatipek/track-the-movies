@@ -79,6 +79,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
+                <!-- Poster Link -->
                 <div class="col-6">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control form-control-sm" id="movie-director" placeholder="Christoper Nolan">
@@ -87,8 +88,38 @@ import Layout from "../layouts/Layout.astro";
                 </div>
               </form>
 
-              <button type="button" class="w-100 btn btn-lg btn-danger">Add The Movie</button>
+              <button type="button" class="w-100 btn btn-lg btn-danger shadow-sm">Add The Movie</button>
             </div>
         </div>
     </main>
+
+    <!-- Table -->
+    <section class="row my-5 container mx-auto">
+        <table class="table table-hover text-center table-striped-columns shadow">
+            <thead class="table-danger">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Movie Title</th>
+                  <th scope="col">Movie Genre</th>
+                  <th scope="col">Lead Roles</th>
+                  <th scope="col">Director</th>
+                  <th scope="col">Your Score</th>
+                  <th scope="col">IMDb Score</th>
+                  <th scope="col">Movie Poster</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Interstellar</td>
+                    <td>Sci-Fi</td>
+                    <td>Matthew McConaughey, Anne Hathaway, Jessica Chastain ve Michael Caine</td>
+                    <td>Christopher Nolan</td>
+                    <td>10</td>
+                    <td>9,2</td>
+                    <td>NaN</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </Layout>

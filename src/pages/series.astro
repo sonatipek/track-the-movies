@@ -88,6 +88,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
+                <!-- Poster Link -->
                 <div class="col-7">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan">
@@ -96,8 +97,40 @@ import Layout from "../layouts/Layout.astro";
                 </div>
               </form>
 
-              <button type="button" class="w-100 btn btn-lg btn-warning">Add The Series</button>
+              <button type="button" class="w-100 btn btn-lg btn-warning shadow-sm">Add The Series</button>
             </div>
         </div>
     </main>
+    
+    <!-- Table -->
+    <section class="row my-5 container mx-auto">
+        <table class="table table-hover text-center table-striped-columns shadow">
+            <thead class="table-warning">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Series Title</th>
+                  <th scope="col">Series Genre</th>
+                  <th scope="col">Lead Roles</th>
+                  <th scope="col">Director</th>
+                  <th scope="col">Number of Season</th>
+                  <th scope="col">Your Score</th>
+                  <th scope="col">IMDb Score</th>
+                  <th scope="col">Series Poster</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mr. Robot</td>
+                    <td>Drama</td>
+                    <td>Rami Malek, Carly Chaikin, Portia Doubleday, Christian Slater</td>
+                    <td>Sam Esmail</td>
+                    <td>4</td>
+                    <td>10</td>
+                    <td>9,2</td>
+                    <td>NaN</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </Layout>
