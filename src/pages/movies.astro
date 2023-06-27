@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="TTYMW | Movies">
+    <main class="container mt-5">
+
+        <div class="card mb-4 rounded-3 shadow-sm border-danger-subtle">
+            <div class="card-header py-3 bg-danger-subtle text-danger-emphasis border-danger-subtle">
+              <h4 class="my-0 fw-normal">Add Movie</h4>
+            </div>
+            <div class="card-body">
+              <form action="#" class="row" x-data>
+
+                <!-- Title -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="movie-title" placeholder="Star Wars">
+                        <label for="movie-title">Movie Title</label>
+                    </div>
+                </div>
+
+                <!-- Genre -->
+                <div class="col-2">
+                    <div class="form-floating">
+                        <select class="form-select" id="movie-genre" aria-label="Movie Genre">
+                            <option selected>Please make your selection</option>
+                            <option value="1">Action</option>
+                            <option value="2">Adventure</option>
+                            <option value="3">Anomation</option>
+                            <option value="4">Comedy</option>
+                            <option value="5">Crime</option>
+                            <option value="6">Drama</option>
+                            <option value="7">Fantasy</option>
+                            <option value="8">Horror</option>
+                            <option value="9">Mystery</option>
+                            <option value="10">Romance</option>
+                            <option value="11">Sci-Fi</option>
+                            <option value="12">Thriller</option>
+                            <option value="13">War</option>
+                            <option value="14">Sport</option>
+                            <option value="15">Western</option>
+                            <option value="16">Documentary</option>
+                        </select>
+                        <label for="movie-genre">Movie Genre</label>
+                    </div>
+                </div>
+
+                <!-- Lead Roles -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="movie-leadroles" placeholder="Angeline Jolie, Brad Pitt">
+                        <label for="movie-leadroles">Lead Roles</label>
+                    </div>
+                </div>
+
+                <!-- Director -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="movie-director" placeholder="Christoper Nolan">
+                        <label for="movie-director">Director</label>
+                    </div>
+                </div>
+
+                <!-- Score -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input x-mask="99" class="form-control form-control-sm" id="movie-score" placeholder="10">
+                        <label for="movie-score">Your Score</label>
+                    </div>
+                </div>
+
+                <!-- IMDB Score -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input x-mask="9,9" class="form-control form-control-sm" id="movie-rate" placeholder="9,2">
+                        <label for="movie-rate">IMDb Score</label>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="movie-director" placeholder="Christoper Nolan">
+                        <label for="movie-director">Movie Poster Link</label>
+                    </div>
+                </div>
+              </form>
+
+              <button type="button" class="w-100 btn btn-lg btn-danger">Add The Movie</button>
+            </div>
+        </div>
+    </main>
+</Layout>
