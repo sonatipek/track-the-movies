@@ -9,6 +9,7 @@ A web application where you can save the movies you watch with their information
 ## 💻 Tech Stack
 - Astro.js
 - ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+- Alpine.js
 
 ## 📷 Screen Shots
 
@@ -33,6 +34,7 @@ Getting started see `CONTRIBUTING.md`.
 ## 💻 Kullanılan Teknolojiler
 - Astro.js
 - ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+- Alpine.js
 
 ## 📷 Ekran Görüntüleri
 
