@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="TTYMW | Seriess">
+    <main class="container mt-5">
+
+        <div class="card mb-4 rounded-3 shadow-sm border-warning-subtle">
+            <div class="card-header py-3 bg-warning-subtle text-warning-emphasis border-warning-subtle">
+              <h4 class="my-0 fw-normal">Add Series</h4>
+            </div>
+            <div class="card-body">
+              <form action="#" class="row" x-data>
+
+                <!-- Title -->
+                <div class="col-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="series-title" placeholder="Star Wars">
+                        <label for="series-title">Series Title</label>
+                    </div>
+                </div>
+
+                <!-- Genre -->
+                <div class="col-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="series-genre" aria-label="Series Genre">
+                            <option selected>Please make your selection</option>
+                            <option value="1">Action</option>
+                            <option value="2">Adventure</option>
+                            <option value="3">Anomation</option>
+                            <option value="4">Comedy</option>
+                            <option value="5">Crime</option>
+                            <option value="6">Drama</option>
+                            <option value="7">Fantasy</option>
+                            <option value="8">Horror</option>
+                            <option value="9">Mystery</option>
+                            <option value="10">Romance</option>
+                            <option value="11">Sci-Fi</option>
+                            <option value="12">Thriller</option>
+                            <option value="13">War</option>
+                            <option value="14">Sport</option>
+                            <option value="15">Western</option>
+                            <option value="16">Documentary</option>
+                        </select>
+                        <label for="series-genre">Series Genre</label>
+                    </div>
+                </div>
+
+                <!-- Lead Roles -->
+                <div class="col-5">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="series-leadroles" placeholder="Angeline Jolie, Brad Pitt">
+                        <label for="series-leadroles">Lead Roles</label>
+                    </div>
+                </div>
+
+                <!-- Director -->
+                <div class="col-3">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan">
+                        <label for="series-director">Director</label>
+                    </div>
+                </div>
+
+                <!-- Season -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10">
+                        <label for="series-score">Number of Seasons</label>
+                    </div>
+                </div>
+
+
+                <!-- Score -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10">
+                        <label for="series-score">Your Score</label>
+                    </div>
+                </div>
+
+                <!-- IMDB Score -->
+                <div class="col-2">
+                    <div class="form-floating mb-3">
+                        <input x-mask="9,9" class="form-control form-control-sm" id="series-rate" placeholder="9,2">
+                        <label for="series-rate">IMDb Score</label>
+                    </div>
+                </div>
+
+                <div class="col-7">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan">
+                        <label for="series-director">Series Poster Link</label>
+                    </div>
+                </div>
+              </form>
+
+              <button type="button" class="w-100 btn btn-lg btn-warning">Add The Series</button>
+            </div>
+        </div>
+    </main>
+</Layout>
