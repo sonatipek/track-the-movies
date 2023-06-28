@@ -123,3 +123,11 @@ import Layout from "../layouts/Layout.astro";
         </table>
     </section>
 </Layout>
+
+<script>
+    import {Movies} from "../../src/utils/movie";
+
+
+    const module = new Movies(1,2,3,45,5,6,5);
+    console.log(module);
+</script>
