@@ -11,20 +11,23 @@ import Layout from "../layouts/Layout.astro";
               <h4 class="my-0 fw-normal">Add Movie</h4>
             </div>
             <div class="card-body">
-              <form class="row" x-data>
+              <form class="row needs-validation" x-data novalidate>
 
                 <!-- Title -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="movie-title" placeholder="Star Wars">
+                        <input type="text" class="form-control form-control-sm" id="movie-title" placeholder="Star Wars" required>
                         <label for="movie-title">Movie Title</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Genre -->
                 <div class="col-md-2">
                     <div class="form-floating">
-                        <select class="form-select" id="movie-genre" aria-label="Movie Genre">
+                        <select class="form-select" id="movie-genre" aria-label="Movie Genre" required>
                             <option selected>Please make your selection</option>
                             <option value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
@@ -44,46 +47,64 @@ import Layout from "../layouts/Layout.astro";
                             <option value="Documentary">Documentary</option>
                         </select>
                         <label for="movie-genre">Movie Genre</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Lead Roles -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="movie-leadroles" placeholder="Angeline Jolie, Brad Pitt">
+                        <input type="text" class="form-control form-control-sm" id="movie-leadroles" placeholder="Angeline Jolie, Brad Pitt" required>
                         <label for="movie-leadroles">Lead Roles</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Director -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="movie-director" placeholder="Christoper Nolan">
+                        <input type="text" class="form-control form-control-sm" id="movie-director" placeholder="Christoper Nolan" required>
                         <label for="movie-director">Director</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Score -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="99" class="form-control form-control-sm" id="movie-score" placeholder="10">
+                        <input x-mask="99" class="form-control form-control-sm" id="movie-score" placeholder="10" required>
                         <label for="movie-score">Your Score</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- IMDB Score -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="9,9" class="form-control form-control-sm" id="movie-imdb" placeholder="9,2">
+                        <input x-mask="9,9" class="form-control form-control-sm" id="movie-imdb" placeholder="9,2" required>
                         <label for="movie-imdb">IMDb Score</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Poster Link -->
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="movie-poster" placeholder="https://...">
+                        <input type="text" class="form-control form-control-sm" id="movie-poster" placeholder="https://..." required>
                         <label for="movie-poster">Movie Poster Link</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
                 <button id="btn__add-movies" type="submit" class="col-md-12 btn btn-lg btn-danger shadow-sm">Add The Movie</button>
@@ -146,22 +167,50 @@ import Layout from "../layouts/Layout.astro";
         
         // Create Movie
         const movie = new Movies(movieTitle.value, movieGenre.value, movieLeads.value, movieDirector.value, movieUserScore.value, movieIMDB.value, moviePosterLink.value);
+
+        if (movieTitle.value === "" || movieGenre.value === "" || movieLeads.value === "" || movieDirector.value === "" || movieUserScore.value === "" || movieIMDB.value === "" || moviePosterLink.value === "") {
+            
+        }else{
+            // Movie add to UI
+            movie.addDataToUI();
+            Movies.addDataToStorage('movies', movie);
+
+            // Clear Inputs
+            Movies.clearInputs([movieTitle, movieGenre, movieLeads, movieDirector, movieUserScore, movieIMDB, moviePosterLink]);
+
+            // When Clicked the delete movie button. 
+            /*
+                I made the definition when the form was submitted because 
+                it was necessary to refresh the page when the listener definition was made before 
+                the form was submitted.
+            */
+            Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
+        }
         
-        // Movie add to UI
-        movie.addDataToUI();
-        Movies.addDataToStorage('movies', movie);
         
-        // Clear Inputs
-        Movies.clearInputs([movieTitle, movieGenre, movieLeads, movieDirector, movieUserScore, movieIMDB, moviePosterLink]);
-        
-        // When Clicked the delete movie button. 
-        /*
-            I made the definition when the form was submitted because 
-            it was necessary to refresh the page when the listener definition was made before 
-            the form was submitted.
-        */
-        Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
 
         e.preventDefault();
     });
+
+
+    // Bootstrap form validation
+    (() => {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+    })
+    })()
 </script>
+

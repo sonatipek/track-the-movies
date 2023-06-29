@@ -15,7 +15,7 @@ export class Movies{
         let tableBody = document.querySelector('#movie-tbody');
         tableBody.innerHTML += `
             <tr>
-                <td><img src=${this.posterURL} width="100px" class="img-thumbnail" alt="movie poster"></td>
+                <td><img src="${this.posterURL}" class="img-thumbnail" width="100px" alt="movie poster"></td>
                 <td>${this.title}</td>
                 <td>${this.genre}</td>
                 <td>${this.leadRoles}</td>
@@ -35,7 +35,7 @@ export class Movies{
         movies.forEach(movie => {
             tableBody.innerHTML += `
                 <tr>
-                    <td><img src=${movie.posterURL} width="100px" class="img-thumbnail" alt="movie poster"></td>
+                    <td><img src=${movie.posterURL} class="img-thumbnail" width="100px" alt="movie poster"></td>
                     <td>${movie.title}</td>
                     <td>${movie.genre}</td>
                     <td>${movie.leadRoles}</td>
@@ -66,7 +66,6 @@ export class Movies{
         
         data.forEach((el, index) => {
             if (el.title === targetTitle.textContent) {
-                console.log(index);
                 data.splice(index, 1)
             }
         });
