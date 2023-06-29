@@ -188,8 +188,7 @@ import Layout from "../layouts/Layout.astro";
         const series = new Series(seriesTitle.value, seriesGenre.value, seriesLeads.value, seriesDirector.value, seriesSeasons.value, seriesUserScore.value, seriesIMDB.value, seriesPosterLink.value);
         
         if (seriesTitle.value === "" || seriesGenre.value === "" || seriesLeads.value === "" || seriesDirector.value === "" || seriesUserScore.value === "" || seriesIMDB.value === "" || seriesPosterLink.value === "" || seriesSeasons.value === "") {
-            e.preventDefault();
-            
+            console.log(false);
         }else{
             // Movie add to UI
             series.addDataToUI();
@@ -201,6 +200,7 @@ import Layout from "../layouts/Layout.astro";
             // When Clicked the delete movie button. 
             Series.deleteData('#series-tbody', 'delete-series', 'series');
         }
+        e.preventDefault();
     });
 
     // Bootstrap form validation
