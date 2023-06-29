@@ -135,24 +135,32 @@ import Layout from "../layouts/Layout.astro";
     document.addEventListener('DOMContentLoaded', () => {
         Movies.loadAllData();
 
-        // When Clicked the delete movie button
-        Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
-
+        
+        // When clicked the delete-all button
         Movies.deleteAllData('#movie-tbody','#delete-all', 'movies')
     });
-
+    
+    
     // When form on submit
     form.addEventListener('submit', (e) => {
-
+        
         // Create Movie
         const movie = new Movies(movieTitle.value, movieGenre.value, movieLeads.value, movieDirector.value, movieUserScore.value, movieIMDB.value, moviePosterLink.value);
         
         // Movie add to UI
         movie.addDataToUI();
         Movies.addDataToStorage('movies', movie);
-
+        
         // Clear Inputs
         Movies.clearInputs([movieTitle, movieGenre, movieLeads, movieDirector, movieUserScore, movieIMDB, moviePosterLink]);
+        
+        // When Clicked the delete movie button. 
+        /*
+            I made the definition when the form was submitted because 
+            it was necessary to refresh the page when the listener definition was made before 
+            the form was submitted.
+        */
+        Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
 
         e.preventDefault();
     });
