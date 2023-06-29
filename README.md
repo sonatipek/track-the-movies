@@ -12,7 +12,9 @@ A web application where you can save the movies you watch with their information
 - Alpine.js
 
 ## 📷 Screen Shots
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/a756e9d8-24c6-419b-9ac7-793516074e77)
 ![image](https://github.com/sonatipek/track-the-movies/assets/80075444/3733bc15-cc09-451b-a592-bfb3acc4e98e)
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/8328e49f-c29d-43ab-9043-0e57294e627a)
 
 
 
@@ -48,6 +50,9 @@ Getting started see `CONTRIBUTING.md`.
 - Alpine.js
 
 ## 📷 Ekran Görüntüleri
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/a756e9d8-24c6-419b-9ac7-793516074e77)
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/3733bc15-cc09-451b-a592-bfb3acc4e98e)
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/8328e49f-c29d-43ab-9043-0e57294e627a)
 
 ## 💅🏼 Stil Rehberi
 ### Colors
