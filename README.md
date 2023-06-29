@@ -12,7 +12,8 @@ A web application where you can save the movies you watch with their information
 - Alpine.js
 
 ## 📷 Screen Shots
-![image](https://github.com/sonatipek/track-the-movies/assets/80075444/01e38668-27ab-44eb-8139-1b27639b73c5)
+![image](https://github.com/sonatipek/track-the-movies/assets/80075444/3733bc15-cc09-451b-a592-bfb3acc4e98e)
+
 
 
 ## 💅🏼 Style Guide
