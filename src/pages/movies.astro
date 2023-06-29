@@ -110,20 +110,11 @@ import Layout from "../layouts/Layout.astro";
                     </tr>
                 </thead>
                 <tbody id="movie-tbody">
-                    <!-- <tr>
-                        <th scope="row">1</th>
-                        <td>Interstellar</td>
-                        <td>Sci-Fi</td>
-                        <td>Matthew McConaughey, Anne Hathaway, Jessica Chastain ve Michael Caine</td>
-                        <td>Christopher Nolan</td>
-                        <td>10</td>
-                        <td>9,2</td>
-                        <td>NaN</td>
-                    </tr> -->
                 </tbody>
             </table>
 
         </div>
+        <button id="delete-all" class="btn btn-dark col-md-3 ms-auto me-md-3 mt-3">Delete All Movies</button>
     </section>
 </Layout>
 
@@ -146,26 +137,23 @@ import Layout from "../layouts/Layout.astro";
 
         // When Clicked the delete movie button
         Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
+
+        Movies.deleteAllData('#movie-tbody','#delete-all', 'movies')
     });
 
     // When form on submit
     form.addEventListener('submit', (e) => {
 
-        // Create Film
-        const film = new Movies(movieTitle.value, movieGenre.value, movieLeads.value, movieDirector.value, movieUserScore.value, movieIMDB.value, moviePosterLink.value);
+        // Create Movie
+        const movie = new Movies(movieTitle.value, movieGenre.value, movieLeads.value, movieDirector.value, movieUserScore.value, movieIMDB.value, moviePosterLink.value);
         
-        // Film add to UI
-        film.addDataToUI();
-        Movies.addDataToStorage('movies', film);
+        // Movie add to UI
+        movie.addDataToUI();
+        Movies.addDataToStorage('movies', movie);
 
         // Clear Inputs
         Movies.clearInputs([movieTitle, movieGenre, movieLeads, movieDirector, movieUserScore, movieIMDB, moviePosterLink]);
 
-
         e.preventDefault();
     });
-
-    
-
-
 </script>

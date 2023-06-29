@@ -27,32 +27,6 @@ export class Movies{
         `;
     };
 
-    static deleteData(parentSelector, buttonSelector, storageKey){
-        let tableRows = document.querySelectorAll(`${parentSelector} tr`);
-        tableRows.forEach(tableData => {
-            tableData.addEventListener('click', (e) => {
-                if (e.target.id === buttonSelector) {
-                    tableData.remove()
-                    this.deleteDataToStorage(storageKey, tableData.children[1]);
-                }
-            })
-        });
-    }
-
-    static deleteDataToStorage(storageKey, targetTitle){
-        let data = this.getDataFromStorage(storageKey);
-        
-        data.forEach((el, index) => {
-            console.log(el.title);
-            // Bütün title'lar birden geliyor tek title alınmıyor
-            if (el.title === targetTitle) {
-                data.splice(index, 1)
-            }
-        });
-
-        localStorage.setItem(storageKey, JSON.stringify(data))
-    }
-
     // Override
     static loadAllData(){
         let movies = this.getDataFromStorage('movies')
@@ -71,6 +45,46 @@ export class Movies{
                     <td><button id="delete-movie"  class="btn btn-outline-danger">Delete Movie</button></td>
                 </tr>
             `;
+        });
+    }
+
+
+    static deleteData(parentSelector, buttonSelector, storageKey){
+        let tableRows = document.querySelectorAll(`${parentSelector} tr`);
+        tableRows.forEach(tableData => {
+            tableData.addEventListener('click', (e) => {
+                if (e.target.id === buttonSelector) {
+                    tableData.remove()
+                    this.deleteDataToStorage(storageKey, tableData.children[1]);
+                }
+            })
+        });
+    }
+
+    static deleteDataToStorage(storageKey, targetTitle){
+        let data = this.getDataFromStorage(storageKey);
+        
+        data.forEach((el, index) => {
+            if (el.title === targetTitle.textContent) {
+                console.log(index);
+                data.splice(index, 1)
+            }
+        });
+
+        localStorage.setItem(storageKey, JSON.stringify(data))
+    }
+
+    static deleteAllData(tableSelector, buttonSelector, storageKey){
+        let dataTableBody = document.querySelector(tableSelector);
+        let deleteAllDataButton = document.querySelector(buttonSelector);
+
+        deleteAllDataButton.addEventListener('click', _ => {
+            let allData = dataTableBody.children;
+            
+            [...allData].forEach(el => {
+                el.remove();
+                localStorage.removeItem(storageKey)
+            });
         });
     }
 
