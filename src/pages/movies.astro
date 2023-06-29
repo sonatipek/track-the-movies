@@ -133,7 +133,6 @@ import Layout from "../layouts/Layout.astro";
                 <tbody id="movie-tbody">
                 </tbody>
             </table>
-
         </div>
         <button id="delete-all" class="btn btn-dark col-md-3 ms-auto me-md-3 mt-3">Delete All Movies</button>
     </section>
@@ -159,7 +158,7 @@ import Layout from "../layouts/Layout.astro";
         
         // When clicked the delete-all button
         Movies.deleteAllData('#movie-tbody','#delete-all', 'movies');
-        
+
         // When Clicked the delete movie button. 
         Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
     });
