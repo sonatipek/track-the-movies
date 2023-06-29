@@ -158,7 +158,10 @@ import Layout from "../layouts/Layout.astro";
 
         
         // When clicked the delete-all button
-        Movies.deleteAllData('#movie-tbody','#delete-all', 'movies')
+        Movies.deleteAllData('#movie-tbody','#delete-all', 'movies');
+        
+        // When Clicked the delete movie button. 
+        Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
     });
     
     
@@ -169,22 +172,17 @@ import Layout from "../layouts/Layout.astro";
         const movie = new Movies(movieTitle.value, movieGenre.value, movieLeads.value, movieDirector.value, movieUserScore.value, movieIMDB.value, moviePosterLink.value);
 
         if (movieTitle.value === "" || movieGenre.value === "" || movieLeads.value === "" || movieDirector.value === "" || movieUserScore.value === "" || movieIMDB.value === "" || moviePosterLink.value === "") {
-            
+            console.log(false);
         }else{
             // Movie add to UI
             movie.addDataToUI();
             Movies.addDataToStorage('movies', movie);
-
+            
             // Clear Inputs
             Movies.clearInputs([movieTitle, movieGenre, movieLeads, movieDirector, movieUserScore, movieIMDB, moviePosterLink]);
-
+            
             // When Clicked the delete movie button. 
-            /*
-                I made the definition when the form was submitted because 
-                it was necessary to refresh the page when the listener definition was made before 
-                the form was submitted.
-            */
-            Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
+           Movies.deleteData('#movie-tbody', 'delete-movie', 'movies');
         }
         
         
