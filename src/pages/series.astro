@@ -11,21 +11,24 @@ import Layout from "../layouts/Layout.astro";
               <h4 class="my-0 fw-normal">Add Series</h4>
             </div>
             <div class="card-body">
-              <form action="#" class="row" x-data>
+              <form class="row needs-validation" x-data novalidate>
 
                 <!-- Title -->
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="series-title" placeholder="Star Wars">
+                        <input type="text" class="form-control form-control-sm" id="series-title" placeholder="Star Wars" required>
                         <label for="series-title">Series Title</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>  
                     </div>
                 </div>
 
                 <!-- Genre -->
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="form-floating">
-                        <select class="form-select" id="series-genre" aria-label="Series Genre">
-                            <option selected>Please make your selection</option>
+                        <select class="form-select" id="series-genre" aria-label="Series Genre" required>
+                            <option selected disabled value="">Please make your selection</option>
                             <option value="1">Action</option>
                             <option value="2">Adventure</option>
                             <option value="3">Anomation</option>
@@ -44,93 +47,131 @@ import Layout from "../layouts/Layout.astro";
                             <option value="16">Documentary</option>
                         </select>
                         <label for="series-genre">Series Genre</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Lead Roles -->
-                <div class="col-5">
+                <div class="col-md-5">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="series-leadroles" placeholder="Angeline Jolie, Brad Pitt">
+                        <input type="text" class="form-control form-control-sm" id="series-leadroles" placeholder="Angeline Jolie, Brad Pitt" required>
                         <label for="series-leadroles">Lead Roles</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Director -->
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan">
+                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan" required>
                         <label for="series-director">Director</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Season -->
-                <div class="col-2">
+                <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10">
+                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10" required>
                         <label for="series-score">Number of Seasons</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
 
                 <!-- Score -->
-                <div class="col-2">
+                <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10">
+                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10" required>
                         <label for="series-score">Your Score</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- IMDB Score -->
-                <div class="col-2">
+                <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="9,9" class="form-control form-control-sm" id="series-rate" placeholder="9,2">
+                        <input x-mask="9,9" class="form-control form-control-sm" id="series-rate" placeholder="9,2" required>
                         <label for="series-rate">IMDb Score</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
 
                 <!-- Poster Link -->
-                <div class="col-7">
+                <div class="col-md-7">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan">
+                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan" required>
                         <label for="series-director">Series Poster Link</label>
+                        <div class="invalid-feedback">
+                            Please make sure to fill out the input
+                        </div>
                     </div>
                 </div>
+
+                <button type="submit" class="col-12 btn btn-lg btn-warning shadow-sm">Add The Series</button>
               </form>
 
-              <button type="button" class="w-100 btn btn-lg btn-warning shadow-sm">Add The Series</button>
             </div>
         </div>
     </main>
     
     <!-- Table -->
     <section class="row my-5 container mx-auto">
-        <table class="table table-hover text-center table-striped-columns shadow">
-            <thead class="table-warning">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Series Title</th>
-                  <th scope="col">Series Genre</th>
-                  <th scope="col">Lead Roles</th>
-                  <th scope="col">Director</th>
-                  <th scope="col">Number of Season</th>
-                  <th scope="col">Your Score</th>
-                  <th scope="col">IMDb Score</th>
-                  <th scope="col">Series Poster</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mr. Robot</td>
-                    <td>Drama</td>
-                    <td>Rami Malek, Carly Chaikin, Portia Doubleday, Christian Slater</td>
-                    <td>Sam Esmail</td>
-                    <td>4</td>
-                    <td>10</td>
-                    <td>9,2</td>
-                    <td>NaN</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table responsive">
+            <table class="table table-hover text-center table-striped-columns shadow">
+                <thead class="table-warning">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Series Title</th>
+                      <th scope="col">Series Genre</th>
+                      <th scope="col">Lead Roles</th>
+                      <th scope="col">Director</th>
+                      <th scope="col">Number of Season</th>
+                      <th scope="col">Your Score</th>
+                      <th scope="col">IMDb Score</th>
+                      <th scope="col">Series Poster</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>  
+        </div>
+        <button id="delete-all" class="btn btn-dark col-md-3 ms-auto me-md-3 mt-3">Delete All Movies</button>
     </section>
 </Layout>
+
+
+<script>
+
+    // Bootstrap form validation
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
