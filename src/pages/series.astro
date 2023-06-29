@@ -29,22 +29,22 @@ import Layout from "../layouts/Layout.astro";
                     <div class="form-floating">
                         <select class="form-select" id="series-genre" aria-label="Series Genre" required>
                             <option selected disabled value="">Please make your selection</option>
-                            <option value="1">Action</option>
-                            <option value="2">Adventure</option>
-                            <option value="3">Anomation</option>
-                            <option value="4">Comedy</option>
-                            <option value="5">Crime</option>
-                            <option value="6">Drama</option>
-                            <option value="7">Fantasy</option>
-                            <option value="8">Horror</option>
-                            <option value="9">Mystery</option>
-                            <option value="10">Romance</option>
-                            <option value="11">Sci-Fi</option>
-                            <option value="12">Thriller</option>
-                            <option value="13">War</option>
-                            <option value="14">Sport</option>
-                            <option value="15">Western</option>
-                            <option value="16">Documentary</option>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Anomation">Anomation</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="War">War</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Western">Western</option>
+                            <option value="Documentary">Documentary</option>
                         </select>
                         <label for="series-genre">Series Genre</label>
                         <div class="invalid-feedback">
@@ -78,8 +78,8 @@ import Layout from "../layouts/Layout.astro";
                 <!-- Season -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="99" class="form-control form-control-sm" id="series-score" placeholder="10" required>
-                        <label for="series-score">Number of Seasons</label>
+                        <input x-mask="99" class="form-control form-control-sm" id="series-season" placeholder="10" required>
+                        <label for="series-season">Number of Seasons</label>
                         <div class="invalid-feedback">
                             Please make sure to fill out the input
                         </div>
@@ -101,8 +101,8 @@ import Layout from "../layouts/Layout.astro";
                 <!-- IMDB Score -->
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
-                        <input x-mask="9,9" class="form-control form-control-sm" id="series-rate" placeholder="9,2" required>
-                        <label for="series-rate">IMDb Score</label>
+                        <input x-mask="9,9" class="form-control form-control-sm" id="series-imdb" placeholder="9,2" required>
+                        <label for="series-imdb">IMDb Score</label>
                         <div class="invalid-feedback">
                             Please make sure to fill out the input
                         </div>
@@ -112,8 +112,8 @@ import Layout from "../layouts/Layout.astro";
                 <!-- Poster Link -->
                 <div class="col-md-7">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control form-control-sm" id="series-director" placeholder="Christoper Nolan" required>
-                        <label for="series-director">Series Poster Link</label>
+                        <input type="text" class="form-control form-control-sm" id="series-poster" placeholder="https://..." required>
+                        <label for="series-poster">Series Poster Link</label>
                         <div class="invalid-feedback">
                             Please make sure to fill out the input
                         </div>
@@ -130,30 +130,78 @@ import Layout from "../layouts/Layout.astro";
     <!-- Table -->
     <section class="row my-5 container mx-auto">
         <div class="table responsive">
-            <table class="table table-hover text-center table-striped-columns shadow">
+            <table class="table table-hover align-middle text-center table-striped-columns shadow">
                 <thead class="table-warning">
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Series Title</th>
-                      <th scope="col">Series Genre</th>
-                      <th scope="col">Lead Roles</th>
-                      <th scope="col">Director</th>
-                      <th scope="col">Number of Season</th>
-                      <th scope="col">Your Score</th>
-                      <th scope="col">IMDb Score</th>
-                      <th scope="col">Series Poster</th>
+                        <th scope="col">Series Poster</th>
+                        <th scope="col">Series Title</th>
+                        <th scope="col">Series Genre</th>
+                        <th scope="col">Lead Roles</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Number of Season</th>
+                        <th scope="col">Your Score</th>
+                        <th scope="col">IMDb Score</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="series-tbody">
                 </tbody>
             </table>  
         </div>
-        <button id="delete-all" class="btn btn-dark col-md-3 ms-auto me-md-3 mt-3">Delete All Movies</button>
+        <button id="delete-all" class="btn btn-dark col-md-3 ms-auto me-md-3 mt-3">Delete All Series</button>
     </section>
 </Layout>
 
 
 <script>
+    import {Series} from "../../src/utils/series";
+
+    let form = document.querySelector('form');
+    // Inputs
+    let seriesTitle = document.querySelector('#series-title'),
+        seriesGenre = document.querySelector('#series-genre'),
+        seriesLeads = document.querySelector('#series-leadroles'),
+        seriesDirector = document.querySelector('#series-director'),
+        seriesSeasons = document.querySelector('#series-season'),
+        seriesUserScore = document.querySelector('#series-score'),
+        seriesIMDB = document.querySelector('#series-imdb'),
+        seriesPosterLink = document.querySelector('#series-poster');
+
+
+    
+    // When Page on Loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        Series.loadAllData();
+
+        
+        // When clicked the delete-all button
+        Series.deleteAllData('#series-tbody','#delete-all', 'series');
+
+        // When Clicked the delete movie button. 
+        Series.deleteData('#series-tbody', 'delete-series', 'series');
+    });
+
+    // When form on submit
+    form.addEventListener('submit', (e) => {
+        
+        // Create Movie
+        const series = new Series(seriesTitle.value, seriesGenre.value, seriesLeads.value, seriesDirector.value, seriesSeasons.value, seriesUserScore.value, seriesIMDB.value, seriesPosterLink.value);
+        
+        if (seriesTitle.value === "" || seriesGenre.value === "" || seriesLeads.value === "" || seriesDirector.value === "" || seriesUserScore.value === "" || seriesIMDB.value === "" || seriesPosterLink.value === "" || seriesSeasons.value === "") {
+            e.preventDefault();
+            
+        }else{
+            // Movie add to UI
+            series.addDataToUI();
+            Series.addDataToStorage('series', series);
+            
+            // Clear Inputs
+            Series.clearInputs([seriesTitle, seriesGenre, seriesLeads, seriesDirector, seriesSeasons, seriesUserScore, seriesIMDB, seriesPosterLink]);
+            
+            // When Clicked the delete movie button. 
+            Series.deleteData('#series-tbody', 'delete-series', 'series');
+        }
+    });
 
     // Bootstrap form validation
     (() => {
