@@ -31,7 +31,8 @@ A web application where you can save the movies you watch with their information
 ## 📍 Roadmap & To-Do List
 - update series / movies
 - share the movie and series list
-
+- keeping track of read books
+  
 ## 🌟 Feedback
 If you have any feedback, please contact at **sonatsayginipek@gmail.com** or **sonatipek.com** .
 
@@ -66,6 +67,7 @@ Getting started see `CONTRIBUTING.md`.
 ## 📍 Yol Haritası & Yapılacaklar Listesi
 - Dizi ve Filmleri güncelleme özelliği
 - Dizi ve film listelerini paylaşma özelliği
+- okunmuş kitapları takip etme
 
 ## 🌟 Geri bildirim
 Herhangi bir geri bildiriminiz varsa, lütfen **sonatsayginipek@gmail.com** veya **sonatipek.com** adresinden iletişime geçin.
