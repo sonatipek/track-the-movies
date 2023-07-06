@@ -32,7 +32,8 @@ A web application where you can save the movies you watch with their information
 - update series / movies
 - share the movie and series list
 - keeping track of read books
-  
+- the ability to add a watch date
+
 ## 🌟 Feedback
 If you have any feedback, please contact at **sonatsayginipek@gmail.com** or **sonatipek.com** .
 
@@ -68,6 +69,7 @@ Getting started see `CONTRIBUTING.md`.
 - Dizi ve Filmleri güncelleme özelliği
 - Dizi ve film listelerini paylaşma özelliği
 - okunmuş kitapları takip etme
+- izlenme tarihi ekleme özelliği
 
 ## 🌟 Geri bildirim
 Herhangi bir geri bildiriminiz varsa, lütfen **sonatsayginipek@gmail.com** veya **sonatipek.com** adresinden iletişime geçin.
