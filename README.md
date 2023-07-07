@@ -6,6 +6,7 @@
 # 🎬 Track Movies on Your Watch - EN
 A web application where you can save the movies you watch with their information. You can add the movies you have watched with information such as poster, name, lead roles, director, genre and rating. In this way, you can easily keep track of the movies you watch.
 
+*We do not use any database. Only local storage is used to save your records.*
 ## 💻 Tech Stack
 - Astro.js
 - Bootstrap
@@ -46,6 +47,7 @@ Getting started see `CONTRIBUTING.md`.
 # 🎬 İzlediğiniz Fimleri Takip Edin - TR
 İzlediğiniz filmleri bilgileri ile beraber kaydedebileceğiniz bir web uygulaması. İzlediğiniz filmleri afiş, isim, başroller, yönetmen, tür ve puan gibi bilgileri ile beraber ekleyebilirsiniz. Bu sayede izlediğiniz filmleri kolayca takip edebilirsiniz.
 
+*Herhangi bir veritabanı kullanmıyoruz. Kayıtlarınızı kaydetmek için yalnızca yerel depolama kullanılır.*
 ## 💻 Kullanılan Teknolojiler
 - Astro.js
 - Bootstrap
