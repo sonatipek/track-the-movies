@@ -29,6 +29,9 @@ A web application where you can save the movies you watch with their information
 | Dark Color | ![#212529](https://placehold.co/10x10/212529/212529) #212529 |
 | Light Color | ![#FFF](https://placehold.co/10x10/white/white) #FFF | 
 
+## Project Variations
+This project is a variation of the track-the-books project. Click here to check out the variation project: [Track Books on Your Read](https://github.com/sonatipek/track-the-books)
+
 ## 📍 Roadmap & To-Do List
 - update series / movies
 - share the movie and series list
@@ -67,6 +70,10 @@ Getting started see `CONTRIBUTING.md`.
 | İkincil Renk | ![#FFC107](https://placehold.co/10x10/ffc107/ffc107) #FFC107 |
 | Koyu Renk | ![#212529](https://placehold.co/10x10/212529/212529) #212529 |
 | Açık Renk | ![#FFF](https://placehold.co/10x10/white/white) #FFF | 
+
+## Proje Varyasyonları
+Bu proje track-the-books preojesinin varyasyonudur. Varyasyon projesine göz atmak için tıklayınız:  [Track Books on Your Read](https://github.com/sonatipek/track-the-books)
+
 ## 📍 Yol Haritası & Yapılacaklar Listesi
 - Dizi ve Filmleri güncelleme özelliği
 - Dizi ve film listelerini paylaşma özelliği
