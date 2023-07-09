@@ -35,7 +35,6 @@ This project is a variation of the track-the-books project. Click here to check 
 ## 📍 Roadmap & To-Do List
 - update series / movies
 - share the movie and series list
-- keeping track of read books
 - the ability to add a watch date
 
 ## 🌟 Feedback
@@ -77,7 +76,6 @@ Bu proje track-the-books preojesinin varyasyonudur. Varyasyon projesine göz atm
 ## 📍 Yol Haritası & Yapılacaklar Listesi
 - Dizi ve Filmleri güncelleme özelliği
 - Dizi ve film listelerini paylaşma özelliği
-- okunmuş kitapları takip etme
 - izlenme tarihi ekleme özelliği
 
 ## 🌟 Geri bildirim
